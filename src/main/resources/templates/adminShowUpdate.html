@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="fr">
+	<head th:fragment="head">
+    	<meta charset="utf-8">
+    	<title>Wild Circus</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.0/dist/css/uikit.min.css" />
+	</head>
+	
+	<body class="uk-container">
+		<header th:replace="admin :: header_admin"> </header>
+		<h1 class="uk-text-large" th:text="${spectacle.id} ? 'Modifier la représentation' : 'Créer une Représentation'"> </h1>
+			<form method="post" th:action="@{/admin/show/update}" th:object="${spectacle}" class="uk-grid-small" uk-grid>
+			    <div class="uk-width-3-4@s">
+			        <label class="uk-form-label" for="title">Titre *</label> 
+					<input id="title" name="title" placeholder="Titre du spectacle" required th:field="*{title}" type="text" class="uk-input uk-form-large uk-width">
+			    </div>
+			    <div class="uk-width-1-4@s">
+			        <label class="uk-form-label" for="legalAge">Age minimum *</label> 
+					<input id="legalAge" name="legalAge" th:value="*{legalAge}" type="number" class="uk-input uk-form-large"> 
+			    </div>
+			    <div class="uk-width-1-2@s">
+			        <label class="uk-form-label" for = "dateShow">Date de représentation *</label>
+					<input id="dateShow" name="dateShow" required th:field="*{dateShow}" type="date" class="uk-input uk-form-large">
+			    </div>
+			    <div class="uk-width-1-2@s">
+			        <label class="uk-form-label" for="tarif">Prix par personne *</label> 
+					<input id="tarif" name="tarif" required th:field="*{tarif}" type="number" class="uk-input uk-form-large">
+			    </div>
+				<div class="uk-margin uk-margin-auto-left uk-text-center">
+					<input type="submit" th:value="${spectacle.id} ? 'Modifier' : 'Créer'" class= "uk-button uk-button-primary">
+					<a href="/admin/show" class="uk-button uk-button-danger">Retour en arrière</a>
+				</div>
+			
+		</form>
+
+	</body>
+	<div th:replace="layout :: script"></div>
+</html>

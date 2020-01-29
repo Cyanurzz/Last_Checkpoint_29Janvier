@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="fr">
+	<head th:fragment="head">
+    	<meta charset="utf-8">
+    	<title>Wild Circus</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.0/dist/css/uikit.min.css" />
+	</head>
+	
+	<body class="uk-container">
+		<header th:replace="admin :: header_admin"> </header>
+		<h1 class="uk-text-large">Gestion des Représentation</h1>
+
+		<a class="uk-link-heading" th:href="@{/admin/show/update}"><span uk-icon="plus"></span>  Ajouter un article</a>
+	
+		
+		<table class="uk-table uk-table-hover uk-table-divider uk-margin uk-margin-auto-right uk-margin-auto@m uk-card uk-card-default uk-card-body">
+		    <thead>
+		        <tr>
+		            <th>id</th>
+		            <th>Titre</th>
+		            <th>date</th>
+		            <th>Age Minimum</th>
+		            <th>tarif</th>
+		            <th></th>
+		            
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr th:each="spec : ${spectacles}">
+		            <td th:text="${spec.id}"></td>
+		            <td th:text="${spec.title}">Table Data</td>
+		            <td th:text="${spec.dateShow}">Table Data</td>
+		            <td th:text="${spec.legalAge}">Table Data</td>
+		            <td th:text="${spec.tarif}">Table Data</td>
+		            <td>
+		            	<ul class="uk-iconnav uk-iconnav-vertical">
+		            		<li><a th:href="@{/admin/show/update(id=${spec.id})}" uk-icon="icon: file-edit"></a></li>
+		            		<li><a th:href="@{/admin/show/delete(id=${spec.id})}" onclick="return confirm('Etes vous sûr de vouloir supprimer cette représentation ?')" uk-icon="icon: trash"></a></li>
+		            	</ul>
+		            </td>
+		        </tr>
+		    </tbody>
+		</table>
+
+	</body>
+	<div th:replace="layout :: script"></div>
+</html>
+

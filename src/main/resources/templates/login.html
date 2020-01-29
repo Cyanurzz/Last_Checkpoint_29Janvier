@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+	<head th:replace="layout :: head"></head>
+	
+</head>
+<body class="uk-animation-slide-top uk-flex uk-height-large uk-margin uk-text-center">
+	<div class="uk-margin-auto uk-margin-auto-vertical uk-width-1-2@s uk-card uk-card-default uk-card-body uk-card-hover">
+		<div class="sidenav uk-margin-top">
+			<div class="uk-grid-match uk-child-width-expand@s uk-text-center" uk-grid>
+				<h2 class="uk-inline">Bienvenue</h2>
+			</div>
+		</div>
+		<div class="uk-grid-match uk-child-width-expand@s uk-text-center" uk-grid>
+			<form th:action="@{/login}" method="post">
+	   			<div class="uk-margin">
+	        		<div class="uk-inline">
+	            		<span class="uk-form-icon" uk-icon="icon: user"></span>
+	      	 	    	<input class="uk-input" type="text" name="username">
+	        		</div>
+	    		</div>
+	    		<div class="uk-margin">
+	        		<div class="uk-inline">
+	            		<span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+	            		<input class="uk-input" type="password" name="password">
+	        		</div>
+	    		</div>
+	    		<div class="uk-inline">
+	    			<button type="submit" class="uk-button uk-button-primary">Se connecter</button>
+					<a th:href="@{/logout}" class="uk-button uk-button-danger">Se déconnecter</a>
+	    		</div>
+	    		
+			</form>
+		</div>
+	</div>
+</body>
+<div th:replace="layout :: script"></div>
+</html>

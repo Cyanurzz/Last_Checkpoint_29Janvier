@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="fr">
+	<head th:fragment="head">
+    	<meta charset="utf-8">
+    	<title>Wild Circus</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.0/dist/css/uikit.min.css" />
+	</head>
+	
+	<body>
+		<header th:fragment="header_admin">
+    		<nav class="uk-container uk-navbar">
+        		<div class="uk-navbar-left">
+            		<ul class="uk-navbar-nav">
+                		<li class="uk-active">
+                    		<a th:href="@{/admin}"><strong>Wild</strong>Circus</a>
+                		</li> 
+            		</ul>
+        		</div>
+        		<div class="uk-navbar-right">
+            		<ul class="uk-navbar-nav uk-visible@s">
+            		    <li><a class="uk-text-large" th:href="@{/admin/groupe}">Groupes</a></li>
+           		 	    <li><a class="uk-text-large" th:href="@{/admin/show}">Représentation</a></li>
+           		 	    <li><a class="uk-text-large" th:href="@{/admin/user}">Utilisateur</a></li>
+           		 	    <li><a class="uk-text-large" th:href="@{/admin/article}">Article</a></li>
+           		 	    <li><a class="uk-text-large" th:href="@{/}">Retour au site</a></li>
+          	 		</ul>
+          	 		<a href="#" class="uk-navbar-toggle uk-hidden@s" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a>
+        		</div>
+    		</nav>
+    		<div id="sidenav" uk-offcanvas="flip: true" class="uk-offcanvas">
+   				<div class="uk-offcanvas-bar">
+        			<ul class="uk-nav">
+            		    <li><a class="uk-text-large" th:href="@{/admin/groupe}">Administrer Groupes</a></li>
+           		 	    <li><a class="uk-text-large" th:href="@{/admin/show}">Représentation</a></li>
+           		 	    <li><a class="uk-text-large" th:href="@{/admin/user}">Utilisateur</a></li>
+           		 	    <li><a class="uk-text-large" th:href="@{/admin/article}">Article</a></li>
+           		 	    <li><a class="uk-text-large" th:href="@{/}">Retour au site</a></li>
+        			</ul>
+    			</div>
+			</div>
+		</header>
+		<h1 class="uk-text-large uk-text-danger uk-text-center">Bienvenue sur la page Admin ! Ici Vous allez pouvoir entièrement gerer votre site ! </h1>
+
+	</body>
+	<div th:replace="layout :: script"></div>
+</html>
