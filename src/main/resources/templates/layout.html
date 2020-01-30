@@ -10,7 +10,7 @@
 	<body>
 		<header th:fragment="header">
    		 <!-- Main Navbar -->
-    		<nav class="uk-navbar-container uk-margin" uk-navbar="mode: click">
+    		<nav class="uk-margin-remove-bottom uk-navbar-container uk-margin" uk-navbar="mode: click" style="margin-bottom: 200px; z-index: 980;" uk-sticky="show-on-up: true; animation: uk-animation-slide-top; bottom: #bottom">
         		<div class="uk-navbar-left">
             		<ul class="uk-navbar-nav">
                 		<li class="uk-active">
@@ -20,8 +20,7 @@
         		</div>
         		<div class="uk-navbar-right">
             		<ul class="uk-navbar-nav uk-visible@s">
-            		    <li><a class="uk-text-large" href="#"></a></li>
-           		 	    <li><a class="uk-text-large" href="#">blog</a></li>
+            		    <li><a class="uk-text-large" href="#spect" uk-scroll>Nos Spectacles</a></li>
            		 	    <li><a sec:authorize="isAnonymous()" th:href="@{/login}"><span uk-icon="user"></span></a></li>
            		 	    <li sec:authorize="isAuthenticated()">
 							<a class="uk-active uk-text-large"  sec:authentication="name">Profil</a>
@@ -41,8 +40,7 @@
     		<nav id="sidenav" uk-offcanvas="flip: true" class="uk-offcanvas" uk-navbar="mode: click">
    				<div class="uk-offcanvas-bar">
         			<ul class="uk-nav">
-            			<li><a class="uk-text-large" href="#">about</a></li>
-            			<li><a class="uk-text-large" href="#">blog</a></li>
+            			<li><a class="uk-text-large" href="#spect" uk-scroll>Nos Spectacles</a></li>
             			<li><a class="uk-text-large" sec:authorize="isAnonymous()" th:href="@{/login}">Se Connecter</a></li>
 						<li sec:authorize="isAuthenticated()"><a class="uk-text-large" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">Administration</a></li>
 						<li sec:authorize="isAuthenticated()"><a class="uk-text-large" th:href="@{/logout}">Déconnexion</a></li>
@@ -51,7 +49,21 @@
 			</nav>
 		</header>
 
-
+		<footer th:fragment="footer">
+			<hr class="uk-divider-icon">
+			<div class="uk-flex uk-flex-wrap uk-align-center uk-flex uk-flex-center uk-flex-middle">
+				<a href="" class="uk-icon-button  uk-margin-small-left uk-margin-small-right" uk-icon="twitter"></a>
+				<a href="" class="uk-icon-button  uk-margin-small-left uk-margin-small-right" uk-icon="facebook"></a>
+				<a href="" class="uk-icon-button  uk-margin-small-left uk-margin-small-right" uk-icon="tumblr"></a>
+				<a href="" class="uk-icon-button  uk-margin-small-left uk-margin-small-right" uk-icon="google-plus"></a>
+				<a href="" class="uk-icon-button  uk-margin-small-left uk-margin-small-right" uk-icon="instagram"></a>
+				<a href="" class="uk-icon-button  uk-margin-small-left uk-margin-small-right" uk-icon="youtube"></a>
+				<a href="" class="uk-icon-button  uk-margin-small-left uk-margin-small-right" uk-icon="pinterest"></a>
+			</div>
+			<div class="uk-margin-remove-bottom">
+				<p class="uk-margin-remove-bottom">©WildCircus 2020 - Tous droits réservés CyanurZzProduction</p>
+			</div>
+		</footer>
 	</body>
 	<div th:fragment="script">
 		<script src="https://cdn.jsdelivr.net/npm/uikit@3.3.0/dist/js/uikit.min.js"></script>

@@ -19,7 +19,6 @@
 		        <tr>
 		            <th>id</th>
 		            <th>Titre</th>
-		            <th>Contenue</th>
 		            <th>Picture</th>
 		            <th>Spectacle</th>
 		            <th></th>
@@ -30,7 +29,6 @@
 		        <tr th:each="article : ${articles}">
 		            <td th:text="${article.id}"></td>
 		            <td th:text="${article.title}">Table Data</td>
-		            <td th:text="${article.content}">Table Data</td>
 		            <td><img th:data-src="${article.picture}" width="150" th:alt="|visuel ${article.title}|" uk-img></td>
 		            <td th:text="${article.spectacle.title}">Table Data</td>
 		            <td>

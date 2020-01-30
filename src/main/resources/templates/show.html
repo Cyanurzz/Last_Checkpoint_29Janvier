@@ -6,8 +6,98 @@
 	</head>
 	
 	<body>
-		//TOO DO
+		<header th:fragment="header">
+   		 <!-- Main Navbar -->
+    		<nav class="uk-margin-remove-bottom uk-navbar-container uk-margin" uk-navbar="mode: click" style="margin-bottom: 200px; z-index: 980;" uk-sticky="show-on-up: true; animation: uk-animation-slide-top; bottom: #bottom">
+        		<div class="uk-navbar-left">
+            		<ul class="uk-navbar-nav">
+                		<li class="uk-active">
+                    		<a th:href="@{/}"><strong>Wild</strong>Circus</a>
+                		</li> 
+            		</ul>
+        		</div>
+        		<div class="uk-navbar-right">
+            		<ul class="uk-navbar-nav uk-visible@s">
+            		    <li><a class="uk-text-large" href="#synops" uk-scroll>Synopsis</a></li>
+            		    <li><a class="uk-text-large" href="#moreInfo" uk-scroll>plus de détails</a></li>
+            		    <li><a class="uk-text-large" href="#art" uk-scroll>Les Artistes</a></li>
+           		 	    <li><a sec:authorize="isAnonymous()" th:href="@{/login}"><span uk-icon="user"></span></a></li>
+           		 	    <li sec:authorize="isAuthenticated()">
+							<a class="uk-active uk-text-large"  sec:authentication="name">Profil</a>
+							<div class="uk-navbar-dropdown">
+								<ul class="uk-nav uk-navbar-dropdown-nav">
+									<li><a class="uk-active" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">Administration</a></li>
+									<li><a class="" th:href="@{/logout}">Déconnexion</a></li>
+								</ul>	
+							</div>
+						</li>
+          	 		</ul>
+          	 	</div>
+          	 	<div class="uk-active">
+          	 		<a href="#" class="uk-navbar-toggle uk-hidden@s" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a>
+        		</div>
+    		</nav>
+    		<nav id="sidenav" uk-offcanvas="flip: true" class="uk-offcanvas" uk-navbar="mode: click">
+   				<div class="uk-offcanvas-bar">
+        			<ul class="uk-nav">
+           		   		<li><a class="uk-text-large" href="#synops" uk-scroll>Synopsis</a></li>
+            		    <li><a class="uk-text-large" href="#moreInfo" uk-scroll>plus de détails</a></li>
+            		    <li><a class="uk-text-large" href="#art" uk-scroll>Les Artistes</a></li>
+            			<li><a class="uk-text-large" sec:authorize="isAnonymous()" th:href="@{/login}">Se Connecter</a></li>
+						<li sec:authorize="isAuthenticated()"><a class="uk-text-large" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">Administration</a></li>
+						<li sec:authorize="isAuthenticated()"><a class="uk-text-large" th:href="@{/logout}">Déconnexion</a></li>
+        			</ul>
+    			</div>
+			</nav>
+		</header>
 		
+		<div class=" uk-height-large uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-background-blend-multiply uk-background-primary uk-panel" th:data-src="${show.picture}" uk-img>
+			<div class="uk-animation uk-container">
+				<h1 th:text="${show.title}" class="uk-animation-slide-left-medium">Background Image</h1>
+			</div>
+		</div>
+		<section class="uk-container uk-padding">
+			<h2 id="synops">Synopsis </h2>
+			<p th:text="${show.description}"></p>
+		</section>
+		
+
+		<div class="uk-background-secondary">
+			<section class="uk-container uk-padding">
+			<h2 class="uk-light" id="moreInfo">plus de détails</h2>
+			<div th:each="article , iter : ${articles}" class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+			    <div th:class="${iter.index % 2 == 0} ?'uk-card-media-left uk-cover-container' : 'uk-flex-last@s uk-card-media-right uk-cover-container'"> <!--  uk-flex-last@s uk-card-media-right uk-cover-container -->
+			        <img th:src="${article?.picture}" alt="" uk-cover>
+			        <canvas width="600" height="400"></canvas>
+			    </div>
+			    <div>
+			        <div class="uk-card-body">
+			            <h3 class="uk-card-title" th:text="${article?.title}"></h3>
+			            <p th:text="${article.content}"></p>
+			        </div>
+			    </div>
+			</div>
+			</section>
+		</div>
+		<section class="uk-container uk-padding ">
+			<h2 class="art">Les Artistes !</h2>
+			<div class="uk-grid uk-flex" uk-grid >
+			    <div th:each="groupe , iter : ${groupes}" class="uk-width-1-3@m uk-width-1@s">
+			        <div class="uk-card uk-card-default">
+			            <div class="uk-card-media-top">
+			                <img th:src="${groupe?.picture}" alt="">
+			            </div>
+			            <div class="uk-card-body">
+			                <h3 class="uk-card-title" th:text="${groupe?.name}">Media Top</h3>
+			                <p th:text="${groupe?.description}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+		</section>
+		
+		
+		<footer th:replace="layout :: footer"></footer>
 	</body>
 	<div th:replace="layout :: script"></div>
 	

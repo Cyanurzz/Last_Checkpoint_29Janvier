@@ -30,7 +30,7 @@
 		        <tr th:each="spec : ${spectacles}">
 		            <td th:text="${spec.id}"></td>
 		            <td th:text="${spec.title}">Table Data</td>
-		            <td th:text="${spec.dateShow}">Table Data</td>
+		            <td th:text="${#dates.format(spec.dateShow, 'dd MMM yyyy')}">Table Data</td>
 		            <td th:text="${spec.legalAge}">Table Data</td>
 		            <td th:text="${spec.tarif}">Table Data</td>
 		            <td>

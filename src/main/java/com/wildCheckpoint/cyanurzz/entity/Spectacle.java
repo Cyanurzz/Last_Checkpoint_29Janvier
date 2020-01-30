@@ -1,8 +1,10 @@
 package com.wildCheckpoint.cyanurzz.entity;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,10 +18,13 @@ public class Spectacle {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String title;
-	private String dateShow;
+	private Date dateShow;
 	private int legalAge;
 	private double tarif;
-
+	private String picture;
+	private int priority;
+	@Column(columnDefinition = "TEXT")
+	private String description;
 	@OneToMany(mappedBy = "spectacle", cascade = CascadeType.ALL)
 	private List<Groupe> groupes;
 	
@@ -30,13 +35,16 @@ public class Spectacle {
 		
 	}	
 
-	public Spectacle(Integer id, String title, String dateShow, int legalAge, double tarif) {
+	public Spectacle(Integer id, String title, Date dateShow, int legalAge, double tarif, String picture,int priority, String description) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.dateShow = dateShow;
 		this.legalAge = legalAge;
 		this.tarif = tarif;
+		this.picture = picture;
+		this.priority = priority;
+		this.description =description; 
 	}
 
 	public Integer getId() {
@@ -79,11 +87,11 @@ public class Spectacle {
 		this.articles = articles;
 	}
 
-	public String getDateShow() {
+	public Date getDateShow() {
 		return dateShow;
 	}
 
-	public void setDateShow(String dateShow) {
+	public void setDateShow(Date dateShow) {
 		this.dateShow = dateShow;
 	}
 
@@ -93,6 +101,30 @@ public class Spectacle {
 
 	public void setGroupes(List<Groupe> groupes) {
 		this.groupes = groupes;
+	}
+
+	public String getPicture() {
+		return picture;
+	}
+
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+
+	public int getPriority() {
+		return priority;
+	}
+
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	

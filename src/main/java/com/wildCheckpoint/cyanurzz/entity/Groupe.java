@@ -1,6 +1,7 @@
 package com.wildCheckpoint.cyanurzz.entity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,6 +18,7 @@ public class Groupe {
 	private Integer id;
 	private String name;
 	private String picture;
+	@Column(columnDefinition = "TEXT")
 	private String description;
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "spectacle_id")

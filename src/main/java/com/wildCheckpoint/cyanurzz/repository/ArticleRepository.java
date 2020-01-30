@@ -7,8 +7,9 @@ import com.wildCheckpoint.cyanurzz.entity.Article;
 
 
 
+
+
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Integer> {
-	
 	
 }

@@ -1,6 +1,7 @@
 package com.wildCheckpoint.cyanurzz.entity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -16,6 +17,7 @@ public class Article {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String title;
+	@Column(columnDefinition = "TEXT")
 	private String content;
 	private String picture;
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)

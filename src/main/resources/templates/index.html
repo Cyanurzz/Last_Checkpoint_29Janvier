@@ -5,8 +5,68 @@
 		<link rel="stylesheet" href="css/index.css">
 	</head>
 	
-	<body>
+	<body class="uk-background-secondary">
 		<head th:replace="layout :: header"></head>
+		
+		<div class=" uk-height-large uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-background-blend-multiply uk-background-primary uk-panel" th:data-src="${mainShow.picture}" uk-img>
+			<div class="uk-animation uk-container">
+				<h1 th:text="${mainShow.title}" class="uk-animation-slide-left-medium">Background Image</h1>
+				<p th:text="${mainShow.description}" class="uk-animation-slide-right-medium"></p>
+				<div class="uk-grid">
+					<div uk-lightbox th:if="${mainShow.id == 1}">
+	  				  <a class="uk-button uk-button-default uk-animation-slide-right-medium" href="https://youtu.be/ItspS32HXiw" data-caption="YouTube">Petite présentation vidéo ! </a>
+					</div>
+					<a class="uk-button uk-button-sucess uk-margin-small-right uk-animation-slide-right-medium" th:if="${mainShow.legalAge < 18}" th:href="@{|/show/${mainShow.id}|}"> Plus d'information</a>
+				</div>
+			</div>
+		</div>
+		<hr class="uk-divider-icon">
+		<div>
+		<section class="uk-container">
+			<h2 class="uk-light">Nos Spectacles </h2>
+			<div uk-slider="center: true" id="spect">
+    			<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+       				<ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
+            			<li th:each="show , iter : ${spectacles}">
+                			<div class="uk-card uk-card-default uk-card-hover fade">
+                    			<div class="uk-card-media-top">
+                        			<img class="article-image uk-height-medium uk-flex uk-flex-center uk-flex-middle" th:src="${show.picture}" th:alt="|Visuel article : ${show.title}|">
+                    			</div>
+                    			<div class="uk-card-body">
+									<div class="uk-card-badge uk-label-success reform" th:if="${show.legalAge < 18}" >Tout Public</div>
+									<div class="uk-card-badge uk-label-danger reform" th:if="${show.legalAge >= 18}" uk-icon="warning" >   -18   </div>
+									<h3 class="uk-card-title" th:text="${show.title}">Title</h3>
+									<div class="uk-grid uk-text-middle uk-flex">
+										<a class="uk-button moreInfo uk-text-middle uk-flex uk-flex-center uk-flex-middle uk-width-1-2@m uk-width-1-1@s" th:if="${show.legalAge < 18}" th:href="@{|/show/${show.id}|}"> Plus d'information</a>
+										<!-- This is a button toggling the modal with the default close button -->
+										<button th:if="${show.legalAge >= 18}" class="uk-button moreInfo uk-text-middle uk-flex uk-flex-center uk-flex-middle uk-width-1-2@m uk-width-1-1@s" type="button" th:uk-toggle="|target: #modal-close-default${show.id}|">Plus d'information</button>
+										<!-- This is the modal with the default close button -->
+										<div th:id="|modal-close-default${show.id}|" uk-modal>
+										    <div class="uk-modal-dialog myMod uk-modal-body uk-light  ">
+										        <button class="uk-modal-close-default" type="button" uk-close></button>
+										        <h2 class="uk-modal-title uk-flex uk-flex-center uk-flex-middle">Wild<span class="circus">Circus</span></h2>
+										        <h3 class="uk-flex uk-flex-center"> Avez-vous plus de 18 ans ?</h3>
+										        <p class="uk-flex uk-flex-center">Le contenu de ce spectacle est réservé aux adultes de plus de 18ans.</p>
+										        <a class="reform buttonMod" th:href="@{|/show/${show.id}|}">J'ai 18 ans ou plus - Entrer</a>
+										        
+										        <h3 class="uk-flex uk-flex-center">PS :  Cette page a été réalisé dans l'urgence car son développeur a eu la flemme de faire de la gestion d'utilisateur ... </h3>
+										        <p class="uk-align-right">David GoodEnough</p>
+										    </div>
+										</div>
+										<p class="uk-text uk-text-middle uk-flex uk-flex-center uk-flex-middle uk-width-1-2@m uk-width-1-1@s" th:text="${#dates.format(show.dateShow, 'dd MMM yyyy')}"></p>
+									</div>
+                    			</div>
+                			</div>
+            			</li>
+            		</ul>
+            		<a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+			        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+				</div>
+    			<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+            </div>
+		</section>
+		<footer th:replace="layout :: footer"></footer>
+		
 		
 	</body>
 	<div th:replace="layout :: script"></div>

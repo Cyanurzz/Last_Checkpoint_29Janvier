@@ -29,6 +29,7 @@ public class IndexController {
 	@GetMapping("/")
 	public String toHome(Model model, @RequestParam (value = "logout", required = false) String logout) {
 		
+		model.addAttribute("mainShow", spectacleRepository.findByPriority(1));
 		model.addAttribute("articles", articleRepository.findAll());
 		model.addAttribute("groupes", groupeRepository.findAll());
 		model.addAttribute("spectacles", spectacleRepository.findAll());

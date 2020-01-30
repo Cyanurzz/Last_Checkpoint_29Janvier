@@ -20,6 +20,10 @@
 			        <label class="uk-form-label" for="legalAge">Age minimum *</label> 
 					<input id="legalAge" name="legalAge" th:value="*{legalAge}" type="number" class="uk-input uk-form-large"> 
 			    </div>
+			    <div class="uk-width-1-1">
+			        <label class="uk-form-label" for="description">Description *</label> 
+					<textarea id="description" rows="8" name="description" th:field="*{description}" class="uk-textarea uk-form-large"></textarea>
+			    </div>
 			    <div class="uk-width-1-2@s">
 			        <label class="uk-form-label" for = "dateShow">Date de représentation *</label>
 					<input id="dateShow" name="dateShow" required th:field="*{dateShow}" type="date" class="uk-input uk-form-large">
@@ -27,6 +31,14 @@
 			    <div class="uk-width-1-2@s">
 			        <label class="uk-form-label" for="tarif">Prix par personne *</label> 
 					<input id="tarif" name="tarif" required th:field="*{tarif}" type="number" class="uk-input uk-form-large">
+			    </div>
+			    <div class="uk-width-1-2@s">
+			        <label class="uk-form-label" for="picture">Visuel Principal *</label> 
+					<input id="picture" name="picture" required th:field="*{picture}" type="string" class="uk-input uk-form-large">
+			    </div>
+			    <div class="uk-width-1-2@s">
+			        <label class="uk-form-label" for="priority">Priorité *</label> 
+					<input id="priority" name="priority" required th:field="*{priority}" type="number" class="uk-input uk-form-large">
 			    </div>
 				<div class="uk-margin uk-margin-auto-left uk-text-center">
 					<input type="submit" th:value="${spectacle.id} ? 'Modifier' : 'Créer'" class= "uk-button uk-button-primary">
