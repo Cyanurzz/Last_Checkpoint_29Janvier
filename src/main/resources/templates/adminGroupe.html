@@ -19,25 +19,24 @@
 		        <tr>
 		            <th>id</th>
 		            <th>Nom</th>
-		            <th>Contenue</th>
-		            <th>Picture</th>
 		            <th>Description</th>
+		            <th>Picture</th>
 		            <th>Spectacle</th>
 		            <th></th>
 		            
 		        </tr>
 		    </thead>
 		    <tbody>
-		        <tr th:each="group : ${groupes}">
-		            <td th:text="${group.id}"></td>
-		            <td th:text="${group.name}">Table Data</td>
-		            <td th:text="${group.description}">Table Data</td>
-		            <td th:text="${group.picture}">Table Data</td>
-		            <td th:text="${group.spectacle.title}">Table Data</td>
+		        <tr th:each="groupe : ${groupes}">
+		            <td th:text="${groupe.id}"></td>
+		            <td th:text="${groupe.name}">Table Data</td>
+		            <td th:text="${groupe.description}">Table Data</td>
+		            <td><img th:data-src="${groupe.picture}" width="150" th:alt="|image du groupe : ${groupe.name}|" uk-img></td>
+		            <td th:text="${groupe.spectacle.title}">Table Data</td>
 		            <td>
 		            	<ul class="uk-iconnav uk-iconnav-vertical">
-		            		<li><a th:href="@{/admin/groupe/update(id=${group.id})}" uk-icon="icon: file-edit"></a></li>
-		            		<li><a th:href="@{/admin/groupe/delete(id=${group.id})}" onclick="return confirm('Etes vous sûr de vouloir supprimer cette représentation ?')" uk-icon="icon: trash"></a></li>
+		            		<li><a th:href="@{/admin/groupe/update(id=${groupe.id})}" uk-icon="icon: file-edit"></a></li>
+		            		<li><a th:href="@{/admin/groupe/delete(id=${groupe.id})}" onclick="return confirm('Etes vous sûr de vouloir supprimer ce groupe ?')" uk-icon="icon: trash"></a></li>
 		            	</ul>
 		            </td>
 		        </tr>

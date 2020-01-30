@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wildCheckpoint.cyanurzz.entity.Groupe;
 import com.wildCheckpoint.cyanurzz.repository.GroupeRepository;
+import com.wildCheckpoint.cyanurzz.repository.SpectacleRepository;
 
 @Controller
 public class AdminGroupController {
@@ -19,6 +20,9 @@ public class AdminGroupController {
 	
 	@Autowired
 	private GroupeRepository groupeRepository;
+	
+	@Autowired 
+	SpectacleRepository spectacleRepository;
 	
 	@GetMapping("/admin/groupe")
 	public String toGroupe(Model model) {
@@ -45,14 +49,16 @@ public class AdminGroupController {
     			groupe = optionalGroupe.get();
     		}
     	}
-		model.addAttribute("groupes", groupe);
-		return "adminArticleUpdate";
+    	model.addAttribute("spectacles", spectacleRepository.findAll());
+		model.addAttribute("groupe", groupe);
+		return "adminGroupeUpdate";
 	}
 	
 	@PostMapping("/admin/groupe/update")
 	public String postArticle(Model model, @ModelAttribute Groupe groupe) {
+		
+		model.addAttribute("spectacles", spectacleRepository.findAll());
     	groupeRepository.save(groupe);
-    	
 		return "redirect:/admin/groupe";
 	}
 }

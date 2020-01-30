@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="fr">
+	<head th:fragment="head">
+    	<meta charset="utf-8">
+    	<title>Wild Circus</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.0/dist/css/uikit.min.css" />
+	</head>
+	
+	<body class="uk-container">
+	
+		<header th:replace="admin :: header_admin"> </header>
+		
+		<h1 class="uk-text-large" th:text="${groupe.id} ? 'Modifier un groupe' : 'Créer un groupe'"> </h1>
+			<form method="post" th:action="@{/admin/groupe/update}" th:object="${groupe}" class="uk-grid-small" uk-grid>
+				<input name="id" th:field="*{id}" type="hidden">
+			    <div class="uk-width-1-1">
+			        <label class="uk-form-label" for="name">Titre *</label> 
+					<input id="name" name="name" placeholder="Nom du groupe" required th:field="*{name}" type="text" class="uk-input uk-form-large uk-width">
+			    </div>
+			    <div class="uk-width-1-1">
+			        <label class="uk-form-label" for="description">Description *</label> 
+					<textarea id="description" rows="8" name="description" th:field="*{description}" class="uk-textarea uk-form-large"></textarea>
+			    </div>
+			    <div class="uk-width-2-3">
+			        <label class="uk-form-label" for = "picture">Lien de L'image *</label>
+					<input id="picturre" name="picture" required th:field="*{picture}" type="text" class="uk-input uk-form-large">
+			    </div>
+			    <div class="uk-width-1-3">
+			        <label class="uk-form-label" for="spectacle">Spectacle *</label> 
+					<select class="uk-select" name="spectacle" th:field="*{spectacle}" >
+                		<option value="0">--</option>
+                		<option th:each="spec : ${spectacles}" th:text="${spec.title}" th:value="${spec.id}">
+                		
+            		</select>
+			    </div>
+				<div class="uk-margin uk-margin-auto-left uk-text-center">
+					<input type="submit" th:value="${groupe.id} ? 'Modifier' : 'Créer'" class= "uk-button uk-button-primary">
+					<a href="/admin/groupe" class="uk-button uk-button-danger">Retour en arrière</a>
+				</div>
+			
+		</form>
+
+	</body>
+	<div th:replace="layout :: script"></div>
+</html>

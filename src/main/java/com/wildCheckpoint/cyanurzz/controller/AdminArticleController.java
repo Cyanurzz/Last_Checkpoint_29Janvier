@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wildCheckpoint.cyanurzz.entity.Article;
 import com.wildCheckpoint.cyanurzz.repository.ArticleRepository;
+import com.wildCheckpoint.cyanurzz.repository.SpectacleRepository;
 
 @Controller
 public class AdminArticleController {
 	
 	@Autowired
 	private ArticleRepository articleRepository;
+	
+	@Autowired
+	private SpectacleRepository spectacleRepository;
 	
 	@GetMapping("/admin/article")
 	public String toArticle(Model model) {
@@ -44,12 +48,15 @@ public class AdminArticleController {
     			article = optionalArticle.get();
     		}
     	}
+    	model.addAttribute("spectacles", spectacleRepository.findAll());
 		model.addAttribute("article", article);
 		return "adminArticleUpdate";
 	}
 	
 	@PostMapping("/admin/article/update")
 	public String postArticle(Model model, @ModelAttribute Article article) {
+		
+		model.addAttribute("spectacles", spectacleRepository.findAll());
     	articleRepository.save(article);
     	
 		return "redirect:/admin/article";

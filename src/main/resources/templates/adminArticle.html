@@ -9,7 +9,7 @@
 	
 	<body class="uk-container">
 		<header th:replace="admin :: header_admin"> </header>
-		<h1 class="uk-text-large">Gestion des Représentation</h1>
+		<h1 class="uk-text-large">Gestion des Articles</h1>
 
 		<a class="uk-link-heading" th:href="@{/admin/article/update}"><span uk-icon="plus"></span>  Ajouter un article</a>
 	
@@ -27,16 +27,16 @@
 		        </tr>
 		    </thead>
 		    <tbody>
-		        <tr th:each="art : ${articles}">
-		            <td th:text="${art.id}"></td>
-		            <td th:text="${art.title}">Table Data</td>
-		            <td th:text="${art.content}">Table Data</td>
-		            <td th:text="${art.picture}">Table Data</td>
-		            <td th:text="${art.spectacle.title}">Table Data</td>
+		        <tr th:each="article : ${articles}">
+		            <td th:text="${article.id}"></td>
+		            <td th:text="${article.title}">Table Data</td>
+		            <td th:text="${article.content}">Table Data</td>
+		            <td><img th:data-src="${article.picture}" width="150" th:alt="|visuel ${article.title}|" uk-img></td>
+		            <td th:text="${article.spectacle.title}">Table Data</td>
 		            <td>
 		            	<ul class="uk-iconnav uk-iconnav-vertical">
-		            		<li><a th:href="@{/admin/article/update(id=${art.id})}" uk-icon="icon: file-edit"></a></li>
-		            		<li><a th:href="@{/admin/article/delete(id=${art.id})}" onclick="return confirm('Etes vous sûr de vouloir supprimer cette représentation ?')" uk-icon="icon: trash"></a></li>
+		            		<li><a th:href="@{/admin/article/update(id=${article.id})}" uk-icon="icon: file-edit"></a></li>
+		            		<li><a th:href="@{/admin/article/delete(id=${article.id})}" onclick="return confirm('Etes vous sûr de vouloir supprimer cette article ?')" uk-icon="icon: trash"></a></li>
 		            	</ul>
 		            </td>
 		        </tr>

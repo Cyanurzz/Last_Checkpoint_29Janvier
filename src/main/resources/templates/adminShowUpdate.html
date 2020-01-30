@@ -11,6 +11,7 @@
 		<header th:replace="admin :: header_admin"> </header>
 		<h1 class="uk-text-large" th:text="${spectacle.id} ? 'Modifier la représentation' : 'Créer une Représentation'"> </h1>
 			<form method="post" th:action="@{/admin/show/update}" th:object="${spectacle}" class="uk-grid-small" uk-grid>
+				<input name="id" th:field="*{id}" type="hidden">
 			    <div class="uk-width-3-4@s">
 			        <label class="uk-form-label" for="title">Titre *</label> 
 					<input id="title" name="title" placeholder="Titre du spectacle" required th:field="*{title}" type="text" class="uk-input uk-form-large uk-width">
