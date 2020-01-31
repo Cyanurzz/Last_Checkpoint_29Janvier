@@ -1,5 +1,6 @@
 package com.wildCheckpoint.cyanurzz.entity;
 
+import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -11,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Spectacle {
 	
@@ -18,6 +21,7 @@ public class Spectacle {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String title;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dateShow;
 	private int legalAge;
 	private double tarif;

@@ -34,7 +34,7 @@
 			    </div>
 			    <div class="uk-width-1-2@s">
 			        <label class="uk-form-label" for="picture">Visuel Principal *</label> 
-					<input id="picture" name="picture" required th:field="*{picture}" type="string" class="uk-input uk-form-large">
+					<input id="picture" name="picture" required th:field="*{picture}" type="text" class="uk-input uk-form-large">
 			    </div>
 			    <div class="uk-width-1-2@s">
 			        <label class="uk-form-label" for="priority">Priorité *</label> 
@@ -42,7 +42,7 @@
 			    </div>
 			   	<div class="uk-width-1-1">
 			        <label class="uk-form-label" for="place">Prochain lieu de représentation *</label> 
-					<input id="place" name="place" required th:field="*{place}" type="number" class="uk-input uk-form-large">
+					<input id="place" name="place" required th:field="*{place}" type="text" class="uk-input uk-form-large">
 			    </div>
 				<div class="uk-margin uk-margin-auto-left uk-text-center">
 					<input type="submit" th:value="${spectacle.id} ? 'Modifier' : 'Créer'" class= "uk-button uk-button-primary">
