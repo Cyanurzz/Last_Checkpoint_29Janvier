@@ -25,6 +25,7 @@ public class Spectacle {
 	private int priority;
 	@Column(columnDefinition = "TEXT")
 	private String description;
+	private String place;
 	@OneToMany(mappedBy = "spectacle", cascade = CascadeType.ALL)
 	private List<Groupe> groupes;
 	
@@ -35,7 +36,7 @@ public class Spectacle {
 		
 	}	
 
-	public Spectacle(Integer id, String title, Date dateShow, int legalAge, double tarif, String picture,int priority, String description) {
+	public Spectacle(Integer id, String title, Date dateShow, int legalAge, double tarif, String picture,int priority, String description, String place) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -45,6 +46,7 @@ public class Spectacle {
 		this.picture = picture;
 		this.priority = priority;
 		this.description =description; 
+		this.place= place;
 	}
 
 	public Integer getId() {
@@ -126,6 +128,16 @@ public class Spectacle {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+	
+	
 	
 	
 }

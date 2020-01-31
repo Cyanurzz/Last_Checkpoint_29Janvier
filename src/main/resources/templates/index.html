@@ -39,7 +39,7 @@
 									<div class="uk-grid uk-text-middle uk-flex">
 										<a class="uk-button moreInfo uk-text-middle uk-flex uk-flex-center uk-flex-middle uk-width-1-2@m uk-width-1-1@s" th:if="${show.legalAge < 18}" th:href="@{|/show/${show.id}|}"> Plus d'information</a>
 										<!-- This is a button toggling the modal with the default close button -->
-										<button th:if="${show.legalAge >= 18}" class="uk-button moreInfo uk-text-middle uk-flex uk-flex-center uk-flex-middle uk-width-1-2@m uk-width-1-1@s" type="button" th:uk-toggle="|target: #modal-close-default${show.id}|">Plus d'information</button>
+										<button th:if="${show.legalAge >= 18}" class="uk-button moreInfo uk-text-middle uk-flex uk-flex-center uk-flex-middle uk-width-1-2@m uk-width-1-1@s" type="button" th:uk-toggle="|target: #modal-close-default${show.id}|" onclick="document.getElementById('song').play()">Plus d'information</button>
 										<!-- This is the modal with the default close button -->
 										<div th:id="|modal-close-default${show.id}|" uk-modal>
 										    <div class="uk-modal-dialog myMod uk-modal-body uk-light  ">
@@ -65,6 +65,9 @@
     			<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
             </div>
 		</section>
+		<audio id="song">
+			<source src="song/dvge.mp3">
+		</audio>
 		<footer th:replace="layout :: footer"></footer>
 		
 		

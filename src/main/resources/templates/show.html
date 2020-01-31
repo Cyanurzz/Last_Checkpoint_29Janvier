@@ -54,6 +54,17 @@
 		<div class=" uk-height-large uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-background-blend-multiply uk-background-primary uk-panel" th:data-src="${show.picture}" uk-img>
 			<div class="uk-animation uk-container">
 				<h1 th:text="${show.title}" class="uk-animation-slide-left-medium">Background Image</h1>
+
+				<button class="uk-button uk-button-primary uk-text-middle uk-flex uk-flex-center uk-flex-middle uk-width-1-2@m uk-width-1-1@s" type="button" th:uk-toggle="|target: #modal-close-default${show.id}|">Plus d'information</button>
+				<div th:id="|modal-close-default${show.id}|" uk-modal>
+					<div class="uk-modal-dialog myMod uk-modal-body">
+						<button class="uk-modal-close-default" type="button" uk-close></button>
+						<h2 class="uk-modal-title uk-flex uk-flex-center uk-flex-middle">Plus d'information</h2>
+						<p th:text="|Tarif unique : ${show.tarif} €|"></p>
+						<p th:text="|Prochaine représentation le : ${#dates.format(show.dateShow, 'dd MMM yyyy')} à 20:00 |"></p>
+						<p th:text="|Lieu : ${show.place}|">
+					</div>
+				</div>
 			</div>
 		</div>
 		<section class="uk-container uk-padding">

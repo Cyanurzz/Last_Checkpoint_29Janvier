@@ -22,7 +22,7 @@
 			    </div>
 			    <div class="uk-width-1-1">
 			        <label class="uk-form-label" for="description">Description *</label> 
-					<textarea id="description" rows="8" name="description" th:field="*{description}" class="uk-textarea uk-form-large"></textarea>
+					<textarea id="description" rows="7" name="description" th:field="*{description}" class="uk-textarea uk-form-large"></textarea>
 			    </div>
 			    <div class="uk-width-1-2@s">
 			        <label class="uk-form-label" for = "dateShow">Date de représentation *</label>
@@ -39,6 +39,10 @@
 			    <div class="uk-width-1-2@s">
 			        <label class="uk-form-label" for="priority">Priorité *</label> 
 					<input id="priority" name="priority" required th:field="*{priority}" type="number" class="uk-input uk-form-large">
+			    </div>
+			   	<div class="uk-width-1-1">
+			        <label class="uk-form-label" for="place">Prochain lieu de représentation *</label> 
+					<input id="place" name="place" required th:field="*{place}" type="number" class="uk-input uk-form-large">
 			    </div>
 				<div class="uk-margin uk-margin-auto-left uk-text-center">
 					<input type="submit" th:value="${spectacle.id} ? 'Modifier' : 'Créer'" class= "uk-button uk-button-primary">
