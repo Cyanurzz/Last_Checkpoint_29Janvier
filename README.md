@@ -14,8 +14,9 @@ Not beautiful ...
 
 After Five month at the _Wild Code School_ they ask us for our last checkpoint to recreate as we want the *Wild Circus* without any constraint. 
 
-
 So I built this app in less 48h hours.
+
+With UserName `SuperAdmin` and password `admin`
 
 ![Last Circus](img/LastCircus.png)
 ## Manual 
