@@ -1,3 +1,3 @@
-# Last Checkpoint at Wild COde School 
+# Last Checkpoint at Wild Code School 
 
 
