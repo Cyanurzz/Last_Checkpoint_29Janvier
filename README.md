@@ -22,9 +22,9 @@ So I built this app in less 48h hours.
 
 For building and running the application you need:
 
-- [MySql](https://www.mysql.com/fr/)
-      - create database called `wildb`  
-      - a user `wildadmin`
+- [MySql](https://www.mysql.com/fr/) 
+      - create database called `wildb`    
+      - a user `wildadmin`  
       - password : `wildAdmin666%`
 - [JDK 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 - [Maven 3](https://maven.apache.org)
