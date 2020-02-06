@@ -7,6 +7,8 @@ It was a _Static_, Basic website.
 We've got 2 days to realise this chalange... you can see it just [right here](https://codepen.io/cyanurzz/pen/wOvKmP)    
 As you can see in About Us we've got a video,... I programming the robot and also try to make a funny and different presentation (Thank's to _Cozmo_ an IA code with python and all libraries open) 
 It look's like this :
+
+
 ![first circus](img/FirstCircus.png)
 Not beautiful ...
 
@@ -22,7 +24,7 @@ So I built this app in less 48h hours.
 
 For building and running the application you need:
 
-- [MySql](https://www.mysql.com/fr/) 
+- [MySql](https://www.mysql.com/fr/)    
       - create database called `wildb`    
       - a user `wildadmin`  
       - password : `wildAdmin666%`
