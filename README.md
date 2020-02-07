@@ -1,6 +1,7 @@
 # Last Checkpoint at Wild Code School 
 
-## Introduction 
+## Introduction
+
 Before the beginning of my training at _Wild Code School_ every one needs to create a *Wild Circus*   
 This was one of my first web site, learning by my self and found every informations alone.  
 It was a _Static_, Basic website.   
@@ -16,7 +17,8 @@ After Five month at the _Wild Code School_ they ask us for our last checkpoint t
 
 So I built this app in less 48h hours.
 
-With UserName `superadmin` and password `admin`
+With UserName `superadmin` and password `admin`.     
+With this account you can have acces to a administrator panel, by this way you can add article or new show, date ,... 
 
 ![Last Circus](img/LastCircus.png)
 ## Manual 
