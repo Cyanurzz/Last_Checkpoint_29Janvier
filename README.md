@@ -15,7 +15,7 @@ Not beautiful ...
 
 After Five month at the _Wild Code School_ they ask us for our last checkpoint to recreate as we want the *Wild Circus* without any constraint. 
 
-So I built this app in less 48h hours.
+So I built this web app in less 48h hours.
 
 With UserName `superadmin` and password `admin`.     
 With this account you can have acces to a administrator panel, by this way you can add article or new show, date ,... 
